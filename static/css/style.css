@@ -243,10 +243,11 @@ body {
 }
 
 /* Hero Section */
-.hero {
-    height: 100vh;
-    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)),
-                url('https://source.unsplash.com/random/1920x1080?technology');
+#home.hero {
+    height: 70vh !important;
+    min-height: 70vh !important;
+    background: linear-gradient(rgb(245, 245, 245), rgb(255, 255, 255)),
+                url('https://source.unsplash.com/random/1920x1080?technology') !important;
     background-size: cover;
     background-position: center;
     display: flex;
