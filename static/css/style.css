@@ -245,7 +245,7 @@ body {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)),
+    background: linear-gradient(rgb(245, 245, 245), rgb(255, 255, 255)),
                 url('https://source.unsplash.com/random/1920x1080?technology');
     background-size: cover;
     background-position: center;
