@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.3/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tai                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="badge badge-primary">Device Management</span>
+                            <span class="badge badge-primary">Analytics</span>
+                            <span class="badge badge-primary">Account Management</span>
+                        </div>
+                        <a href="#" class="cert-link">Learn More →</a>
+                    </div>
+                </div>ig = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#5E3BEE',
+                        'heading': '#282938',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+            daisyui: {
+                themes: [
+                    {
+                        light: {
+                            ...require("daisyui/src/theming/themes")["[data-theme=light]"],
+                            "primary": "#5E3BEE",
+                            "primary-content": "#ffffff",
+                            "secondary": "#282938",
+                            "accent": "#5E3BEE",
+                        },
+                    },
+                ],
+            },
+        }
+    </script>
+    <style>
+        /* Typography */
+        .card-title, h1, h2, h3, h4, h5, h6 {
+            color: #282938;
+        }
+
+        /* Certification Cards */
+        .cert-card {
+            position: relative;
+            padding-bottom: 2.5rem;  /* 為 Learn More 連結預留空間 */
+        }
+        .cert-content {
+            height: 100%;
+        }
+        .cert-link {
+            position: absolute;
+            bottom: 1rem;
+            right: 1.5rem;
+        }
+
+        /* Buttons and Badges */
+        .btn-primary {
+            background-color: #5E3BEE !important;
+            border-color: #5E3BEE !important;
+        }
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+        .badge-primary {
+            background-color: #F3F4F6 !important;
+            border-color: #E5E7EB !important;
+            color: #6B7280 !important;
+        }
+        .badge {
+            font-weight: 500;
+        }
+
+        /* Icons and Text */
+        .text-primary, 
+        .fa-check-circle, 
+        .fa-star,
+        .fa-rocket,
+        .fa-chart-line,
+        .fa-globe,
+        .fa-database,
+        .fa-users,
+        .fa-laptop-code {
+            color: #5E3BEE !important;
+        }
+
+        /* Links */
+        a:not(.btn):hover {
+            color: #5E3BEE;
+            transition: color 0.3s ease;
+        }
+
+        /* Cards */
+        .card {
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Alerts */
+        .alert-success, .alert-info {
+            border-left: 4px solid #5E3BEE;
+        }
+
+        /* Navigation */
+        .menu a.active {
+            color: #5E3BEE !important;
+            background: transparent !important;
+        }
+        .menu a:hover {
+            background: rgba(94, 59, 238, 0.1) !important;
+        }
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <div class="navbar bg-base-100 fixed top-0 z-50 shadow-sm">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <label tabindex="0" class="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+                    </svg>
+                </label>
+                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <li><a href="#home" class="hover:text-primary transition-colors">Home</a></li>
+                    <li><a href="#experience" class="hover:text-primary transition-colors">Experience</a></li>
+                    <li><a href="#skills" class="hover:text-primary transition-colors">Skills</a></li>
+                    <li><a href="#certifications" class="hover:text-primary transition-colors">Certifications</a></li>
+                    <li><a href="#projects" class="hover:text-primary transition-colors">Projects</a></li>
+                </ul>
+            </div>
+            <a href="#" class="btn btn-ghost normal-case text-xl text-heading font-bold">Portfolio</a>
+        </div>
+        <div class="navbar-end hidden lg:flex">
+            <ul class="menu menu-horizontal px-1">
+                <li><a href="#home" class="hover:text-primary transition-colors">Home</a></li>
+                <li><a href="#experience" class="hover:text-primary transition-colors">Experience</a></li>
+                <li><a href="#skills" class="hover:text-primary transition-colors">Skills</a></li>
+                <li><a href="#certifications" class="hover:text-primary transition-colors">Certifications</a></li>
+                <li><a href="#projects" class="hover:text-primary transition-colors">Projects</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Spacer for fixed navbar -->
+    <div class="h-16"></div>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Software Developer & Technology Enthusiast</p>
+        </div>
+    </section>
+
+    <section id="experience" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-heading">Experience</h2>
+                <div class="w-24 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="space-y-8">
+                <!-- BenQ Experience -->
+                <div class="card lg:card-side bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <div class="card-body">
+                        <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-4">
+                            <div>
+                                <h3 class="card-title text-2xl mb-2">Senior Software Product Manager</h3>
+                                <div class="flex items-center text-gray-600">
+                                    <i class="fas fa-building mr-2"></i>
+                                    BenQ Corp., Taipei
+                                </div>
+                            </div>
+                            <div class="badge badge-primary mt-2 lg:mt-0">2024.12 - Present</div>
+                        </div>
+                        <ul class="list-disc list-inside space-y-3 text-gray-600 ml-2">
+                            <li>Managed IAM, AMS, and DMS application development and maintenance</li>
+                            <li>Ensured features met tender and compliance requirements</li>
+                            <li>Collaborated cross-functionally to enhance functionality and value</li>
+                            <li>Resolved issues through proactive monitoring and practical solutions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Synology Experience -->
+                <div class="card lg:card-side bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <div class="card-body">
+                        <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-4">
+                            <div>
+                                <h3 class="card-title text-2xl mb-2">Software Project Manager</h3>
+                                <div class="flex items-center text-gray-600">
+                                    <i class="fas fa-building mr-2"></i>
+                                    Synology Inc., New Taipei
+                                </div>
+                            </div>
+                            <div class="badge badge-primary mt-2 lg:mt-0">2023.05 - 2024.09</div>
+                        </div>
+                        <div class="flex items-center text-gray-600 mb-6">
+                                <i class="fas fa-arrow-trend-up text-primary mr-2"></i>
+                                <span class="font-medium">Revenue Growth: +450% MoM through virtual license sales flow</span>
+                        </div>
+
+                        <ul class="list-disc list-inside space-y-3 text-gray-600 ml-2">
+                            <li>Enhanced UX with strategic improvements and revenue-boosting features</li>
+                            <li>Accelerated checkout process by 15% through system architecture updates</li>
+                            <li>Launched cross-border e-commerce for Synology Store from scratch</li>
+                            <li>Pioneered the "Business War Room" project for user data analysis</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- ASUS Experience -->
+                <div class="card lg:card-side bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <div class="card-body">
+                        <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-4">
+                            <div>
+                                <h3 class="card-title text-2xl mb-2">PC Software Product Manager</h3>
+                                <div class="flex items-center text-gray-600">
+                                    <i class="fas fa-building mr-2"></i>
+                                    ASUSTek Computer Inc., Taipei
+                                </div>
+                            </div>
+                            <div class="badge badge-primary mt-2 lg:mt-0">2020.08 - 2023.04</div>
+                        </div>
+                        <div class="flex flex-wrap gap-4 mb-6">
+                            <div class="flex items-center text-gray-600">
+                                <i class="fas fa-chart-line text-primary mr-2"></i>
+                                <span class="font-medium">App Rating: 3.5 → 4.3</span>
+                            </div>
+                            <div class="flex items-center text-gray-600">
+                                <i class="fas fa-arrow-trend-up text-primary mr-2"></i>
+                                <span class="font-medium">Revenue Growth: +10% YoY</span>
+                            </div>
+                        </div>
+                        <ul class="list-disc list-inside space-y-3 text-gray-600 ml-2">
+                            <li>Achieved 28% account registration rate through new CRM process</li>
+                            <li>Optimized hardware-software integration</li>
+                            <li>Implemented user behavior analysis with SQL and Tableau</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-heading">Skills & Expertise</h2>
+                <div class="w-24 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Feature Planning -->
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <div class="card-body">
+                        <h3 class="card-title text-xl mb-4">
+                            <i class="fas fa-lightbulb text-primary mr-2"></i>
+                            Feature Planning
+                        </h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-2"></i>
+                                <span>Initiated account registration process to enhance customer relationship management - from 2021, 28% of ASUS accounts are registered from this process</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-2"></i>
+                                <span>Elevated the user experience through strategic enhancements and the introduction of revenue-boosting features</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Project Management -->
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <div class="card-body">
+                        <h3 class="card-title text-xl mb-4">
+                            <i class="fas fa-tasks text-primary mr-2"></i>
+                            Project Management
+                        </h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-2"></i>
+                                <span>Successfully implemented cross-border e-commerce sales for the Synology Store</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-2"></i>
+                                <span>Collaborated with international software vendors to optimize hardware-software integration</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Data Analysis -->
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <div class="card-body">
+                        <h3 class="card-title text-xl mb-4">
+                            <i class="fas fa-chart-line text-primary mr-2"></i>
+                            Data Analysis
+                        </h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-2"></i>
+                                <span>Utilized SQL and Tableau for in-depth analysis of user behavior</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-2"></i>
+                                <span>Initiated the "Business War Room" project for data analysis</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Bug Tracking -->
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <div class="card-body">
+                        <h3 class="card-title text-xl mb-4">
+                            <i class="fas fa-bug text-primary mr-2"></i>
+                            Bug Tracking
+                        </h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-2"></i>
+                                <span>Issue classification and tracking system implementation</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-2"></i>
+                                <span>Developed "Feedback hub" tracking system for ASUS Software Center</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-2"></i>
+                                <span>Improved application rating through systematic UX improvements</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-2"></i>
+                                <span>Expert in Windows log tool utilization</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-heading">Product / Projects</h2>
+                <div class="w-24 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- BenQ Project -->
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <figure class="px-6 pt-6">
+                        <img src="{{ url_for('static', filename='images/benq-project.jpg') }}" alt="BenQ IAM/AMS/DMS Dashboard" class="rounded-xl shadow-lg" />
+                    </figure>
+                    <div class="card-body">
+                        <h3 class="card-title text-xl mb-2">BenQ IAM/AMS/DMS</h3>
+                        <p class="text-gray-600 mb-4">BenQ displays come with comprehensive management solutions to help administrators manage devices and accounts with ease.​</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="badge badge-primary">Android Apps</span>
+                            <span class="badge badge-primary">Web services</span>
+                            <span class="badge badge-primary">Product Management</span>
+                        </div>
+                        <a href="#" class="cert-link">Learn More →</a>
+                    </div>
+                </div>
+
+                <!-- MyASUS Project -->
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <figure class="px-6 pt-6">
+                        <img src="{{ url_for('static', filename='images/myasus-project.jpg') }}" alt="MyASUS Application" class="rounded-xl shadow-lg" />
+                    </figure>
+                    <div class="card-body">
+                        <h3 class="card-title text-xl mb-2">MyASUS (Windows Application)</h3>
+                        <p class="text-gray-600 mb-4">Collaborated with independent software vendors across the United States and Taiwan to optimize hardware-software integration</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="badge badge-primary">UWP</span>
+                            <span class="badge badge-primary">Sales flow</span>
+                            <span class="badge badge-primary">Product Management</span>
+                        </div>
+                        <a href="#" class="cert-link">Learn More →</a>
+                    </div>
+                </div>
+
+                <!-- Synology Store Project -->
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <figure class="px-6 pt-6">
+                        <img src="{{ url_for('static', filename='images/synology-project.jpg') }}" alt="Synology Store" class="rounded-xl shadow-lg" />
+                    </figure>
+                    <div class="card-body">
+                        <h3 class="card-title text-xl mb-2">Synology Store</h3>
+                        <p class="text-gray-600 mb-4">Elevated the user experience through strategic enhancements and the introduction of revenue-boosting features</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="badge badge-primary">E-commerce</span>
+                            <span class="badge badge-primary">UX Design</span>
+                            <span class="badge badge-primary">Revenue Optimization</span>
+                        </div>
+                        <div class="card-actions justify-end">
+                            <a href="#" class="cert-link">Learn More →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-heading">Certifications & Awards</h2>
+                <div class="w-24 h-1 bg-primary mx-auto"></div>
+            </div>
+
+            <div class="space-y-12">
+                <div class="cert-section">
+                <h3>Professional Certifications</h3>
+                    <div class="cert-grid">
+                        <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+                            <div class="card-body">
+                                <h4 class="card-title text-lg mb-2">Capstone: Retrieving, Processing, and Visualizing Data with Python</h4>
+                                <div class="flex items-center text-gray-600 mb-2">
+                                    <i class="fas fa-university mr-2"></i>
+                                    <p class="cert-issuer">University of Michigan</p>
+                                </div>
+                                <div class="flex items-center text-gray-600 mb-4">
+                                    <i class="fas fa-calendar mr-2"></i>
+                                    <p class="cert-date">July 8, 2023</p>
+                                </div>
+                                <a href="#" class="cert-link">Learn More →</a>
+                            </div>
+                        </div>
+
+                        <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+                            <div class="card-body">
+                                <h4 class="card-title text-lg mb-2">Programming for Everybody (Getting Started with Python)</h4>
+                                <div class="flex items-center text-gray-600 mb-2">
+                                    <i class="fas fa-university mr-2"></i>
+                                    <p class="cert-issuer">University of Michigan</p>
+                                </div>
+                                <div class="flex items-center text-gray-600 mb-4">
+                                    <i class="fas fa-calendar mr-2"></i>
+                                    <p class="cert-date">June 18, 2023</p>
+                                </div>
+                                <a href="#" class="cert-link">Learn More →</a>
+                            </div>
+                        </div>
+
+                        <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+                            <div class="card-body">
+                                <h4 class="card-title text-lg mb-2">Foundations of Project Management</h4>
+                                <div class="flex items-center text-gray-600 mb-2">
+                                    <i class="fas fa-university mr-2"></i>
+                                    <p class="cert-issuer">Google</p>
+                                </div>
+                                <div class="flex items-center text-gray-600 mb-4">
+                                    <i class="fas fa-calendar mr-2"></i>
+                                    <p class="cert-date">May 15, 2023</p>
+                                </div>
+                                <a href="#" class="cert-link">Learn More →</a>
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+            <div class="cert-section">
+                <h3>Awards & Achievements</h3>
+                <div class="cert-grid">
+                        <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+                            <div class="card-body">
+                                <h4 class="card-title text-lg mb-2">Winner of Youth Creative Competition</h4>
+                                <div class="flex items-center text-gray-600 mb-2">
+                                    <i class="fas fa-award mr-2"></i>
+                                    <p class="cert-issuer">Cultural Tech Alliance Taiwan</p>
+                                </div>
+                                <div class="flex items-center text-gray-600 mb-4">
+                                    <i class="fas fa-calendar mr-2"></i>
+                                    <p class="cert-date">2019.12, Taipei</p>
+                                </div>
+                                <a href="#" class="cert-link">Learn More →</a>
+                            </div>
+                        </div>
+
+                        <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+                            <div class="card-body">
+                                <h4 class="card-title text-lg mb-2">Innovation and Entrepreneurship Competition Winner</h4>
+                                <div class="flex items-center text-gray-600 mb-2">
+                                    <i class="fas fa-award mr-2"></i>
+                                    <p class="cert-issuer">First Place</p>
+                                </div>
+                                <div class="flex items-center text-gray-600 mb-4">
+                                    <i class="fas fa-calendar mr-2"></i>
+                                    <p class="cert-date">2019.07, Hangzhou</p>
+                                </div>
+                                <a href="#" class="cert-link">Video →</a>
+                            </div>
+                        </div>
+
+                        <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+                            <div class="card-body">
+                                <h4 class="card-title text-lg mb-2">Taiwan Government Open Data Platform</h4>
+                                <div class="flex items-center text-gray-600 mb-2">
+                                    <i class="fas fa-award mr-2"></i>
+                                    <p class="cert-issuer">Excellent Work Award</p>
+                                </div>
+                                <div class="flex items-center text-gray-600 mb-4">
+                                    <i class="fas fa-calendar mr-2"></i>
+                                    <p class="cert-date">2016.07, Taipei</p>
+                                </div>
+                                <a href="#" class="cert-link">Learn More →</a>
+                            </div>
+                        </div>
+
+                        <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+                            <div class="card-body">
+                                <h4 class="card-title text-lg mb-2">TWNIC Photography Competition</h4>
+                                <div class="flex items-center text-gray-600 mb-2">
+                                    <i class="fas fa-award mr-2"></i>
+                                    <p class="cert-issuer">First Place</p>
+                                </div>
+                                <div class="flex items-center text-gray-600 mb-4">
+                                    <i class="fas fa-calendar mr-2"></i>
+                                    <p class="cert-date">2015, Taipei</p>
+                                </div>
+                                <a href="#" class="cert-link">Learn More →</a>
+                            </div>
+                        </div>
+
+                        <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+                            <div class="card-body">
+                                <h4 class="card-title text-lg mb-2">TWNIC T-shirt Design Competition</h4>
+                                <div class="flex items-center text-gray-600 mb-2">
+                                    <i class="fas fa-award mr-2"></i>
+                                    <p class="cert-issuer">First Place</p>
+                                </div>
+                                <div class="flex items-center text-gray-600 mb-4">
+                                    <i class="fas fa-calendar mr-2"></i>
+                                    <p class="cert-date">2015, Taipei</p>
+                                </div>
+                                <a href="#" class="cert-link">Learn More →</a>
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+            <div class="cert-section">
+                <h3>Language</h3>
+                <div class="cert-grid">
+                    <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+                        <div class="card-body">
+                            <h4 class="card-title text-lg mb-2">English - TOEIC</h4>
+                            <div class="flex items-center text-gray-600 mb-2">
+                                <i class="fas fa-award mr-2"></i>
+                                <p class="cert-issuer">Score: 845/990</p>
+                            </div>
+                            <div class="flex items-center text-gray-600 mb-4">
+                                <i class="fas fa-calendar mr-2"></i>
+                                <p class="cert-date">2023</p>
+                            </div>
+                            <a href="#" class="cert-link">Learn More →</a>
+                        </div>
+                    </div>
+
+                    <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+                        <div class="card-body">
+                            <h4 class="card-title text-lg mb-2">Korean - TOPIK</h4>
+                            <div class="flex items-center text-gray-600 mb-2">
+                                <i class="fas fa-award mr-2"></i>
+                                <p class="cert-issuer">Level: 4/6</p>
+                            </div>
+                            <div class="flex items-center text-gray-600 mb-4">
+                                <i class="fas fa-calendar mr-2"></i>
+                                <p class="cert-date">2023</p>
+                            </div>
+                            <a href="#" class="cert-link">Learn More →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2025 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
